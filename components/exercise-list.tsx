@@ -1,3 +1,5 @@
+"use client"
+
 import { useState, useEffect } from "react"
 import { type Exercise, Set, type WorkoutDay } from "@/lib/types"
 import { Button } from "@/components/ui/button"
@@ -177,26 +179,26 @@ export function ExerciseList({ exercises: initialExercises, day, onComplete, onB
             <AccordionItem
               key={exercise.id}
               value={exercise.id}
-              className={`border rounded-lg overflow-hidden ${isCompleted ? "border-primary/30 bg-primary/5" : allSetsCompleted ? "border-primary/20 bg-primary/5" : "border-border"}`}
+              className={`border rounded-lg overflow-hidden ${isCompleted ? "border-green-500/30 bg-green-500/5" : allSetsCompleted ? "border-green-500/20 bg-green-500/5" : "border-zinc-800"}`}
             >
               <AccordionTrigger className="px-4 py-3 hover:no-underline">
                 <div className="flex items-center justify-between w-full">
                   <div className="flex items-center">
                     {isCompleted ? (
-                      <div className="w-6 h-6 rounded-full bg-primary flex items-center justify-center mr-2">
-                        <Check className="h-4 w-4 text-primary-foreground" />
+                      <div className="w-6 h-6 rounded-full bg-green-500 flex items-center justify-center mr-2">
+                        <Check className="h-4 w-4 text-zinc-900" />
                       </div>
                     ) : allSetsCompleted ? (
-                      <div className="w-6 h-6 rounded-full border-2 border-primary flex items-center justify-center mr-2">
-                        <Check className="h-4 w-4 text-primary" />
+                      <div className="w-6 h-6 rounded-full border-2 border-green-500 flex items-center justify-center mr-2">
+                        <Check className="h-4 w-4 text-green-500" />
                       </div>
                     ) : (
-                      <div className="w-6 h-6 rounded-full border-2 border-muted-foreground mr-2" />
+                      <div className="w-6 h-6 rounded-full border-2 border-zinc-600 mr-2" />
                     )}
                     <span className="font-medium">{exercise.name}</span>
                   </div>
                   <div className="flex items-center">
-                    <div className="text-sm text-muted-foreground mr-2">
+                    <div className="text-sm text-zinc-400 mr-2">
                       {exercise.targetSets} × {exercise.targetReps}
                     </div>
                     {exercise.editable && <ExerciseEditor exercise={exercise} onSave={handleExerciseUpdate} />}
@@ -206,7 +208,7 @@ export function ExerciseList({ exercises: initialExercises, day, onComplete, onB
 
               <AccordionContent className="px-4 pb-4">
                 <div className="space-y-4">
-                  <div className="grid grid-cols-12 gap-2 text-xs font-medium text-muted-foreground">
+                  <div className="grid grid-cols-12 gap-2 text-xs font-medium text-zinc-400">
                     <div className="col-span-2">Serie</div>
                     <div className="col-span-4">Reps</div>
                     <div className="col-span-4">Peso (kg)</div>
@@ -228,7 +230,7 @@ export function ExerciseList({ exercises: initialExercises, day, onComplete, onB
                               e.target.value ? Number.parseInt(e.target.value) : 0,
                             )
                           }
-                          className="h-9 bg-background text-base"
+                          className="h-9 bg-zinc-900 text-base"
                           placeholder={`${exercise.targetReps}`}
                         />
                       </div>
@@ -244,7 +246,7 @@ export function ExerciseList({ exercises: initialExercises, day, onComplete, onB
                               e.target.value ? Number.parseFloat(e.target.value) : 0,
                             )
                           }
-                          className="h-9 bg-background text-base"
+                          className="h-9 bg-zinc-900 text-base"
                           placeholder="0"
                           step={exercise.weightType === "barbell" ? "5" : "1"}
                         />
@@ -253,11 +255,11 @@ export function ExerciseList({ exercises: initialExercises, day, onComplete, onB
                         <Button
                           variant="ghost"
                           size="icon"
-                          className={`h-8 w-8 rounded-full ${exerciseData[exercise.id][setIndex]?.completed ? "bg-primary/20" : ""}`}
+                          className={`h-8 w-8 rounded-full ${exerciseData[exercise.id][setIndex]?.completed ? "bg-green-500/20" : ""}`}
                           onClick={() => handleSetComplete(exercise.id, setIndex)}
                         >
                           <CheckCircle
-                            className={`h-5 w-5 ${exerciseData[exercise.id][setIndex]?.completed ? "text-primary" : "text-muted-foreground"}`}
+                            className={`h-5 w-5 ${exerciseData[exercise.id][setIndex]?.completed ? "text-green-500" : "text-zinc-500"}`}
                           />
                         </Button>
                       </div>

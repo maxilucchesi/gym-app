@@ -21,7 +21,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es" className="dark">
-      <body className={`${robotoCondensed.variable} font-sans`}>{children}</body>
+      <body className={`${robotoCondensed.variable} font-sans bg-zinc-950 text-white`}>{children}</body>
     </html>
   )
 }

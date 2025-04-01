@@ -1,5 +1,3 @@
-"use client"
-
 import { useEffect, useRef, useState } from "react"
 import { getExerciseHistory } from "@/lib/data"
 import { Card } from "@/components/ui/card"
@@ -145,7 +143,7 @@ export function ProgressHistory({ exerciseId }: ProgressHistoryProps) {
       </Button>
 
       {isExpanded && (
-        <Card className="p-2 bg-card/50 border-muted">
+        <Card className="p-2 bg-zinc-900 border-zinc-700">
           <canvas ref={canvasRef} className="w-full h-32" style={{ width: "100%", height: "8rem" }} />
         </Card>
       )}

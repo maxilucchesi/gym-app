@@ -1,5 +1,3 @@
-"use client"
-
 import { useState } from "react"
 import type { Exercise } from "@/lib/types"
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
@@ -39,14 +37,19 @@ export function ExerciseEditor({ exercise, onSave }: ExerciseEditorProps) {
           <Edit2 className="h-3 w-3" />
         </Button>
       </DialogTrigger>
-      <DialogContent className="sm:max-w-[425px]">
+      <DialogContent className="sm:max-w-[425px] bg-zinc-900 border-zinc-700">
         <DialogHeader>
           <DialogTitle>Editar Ejercicio</DialogTitle>
         </DialogHeader>
         <div className="grid gap-4 py-4">
           <div className="grid gap-2">
             <Label htmlFor="name">Nombre</Label>
-            <Input id="name" value={name} onChange={(e) => setName(e.target.value)} />
+            <Input
+              id="name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              className="bg-zinc-800 border-zinc-700"
+            />
           </div>
           <div className="grid grid-cols-2 gap-4">
             <div className="grid gap-2">
@@ -56,6 +59,7 @@ export function ExerciseEditor({ exercise, onSave }: ExerciseEditorProps) {
                 type="number"
                 value={targetSets}
                 onChange={(e) => setTargetSets(Number.parseInt(e.target.value))}
+                className="bg-zinc-800 border-zinc-700"
               />
             </div>
             <div className="grid gap-2">
@@ -65,6 +69,7 @@ export function ExerciseEditor({ exercise, onSave }: ExerciseEditorProps) {
                 type="number"
                 value={targetReps}
                 onChange={(e) => setTargetReps(Number.parseInt(e.target.value))}
+                className="bg-zinc-800 border-zinc-700"
               />
             </div>
           </div>
@@ -74,10 +79,10 @@ export function ExerciseEditor({ exercise, onSave }: ExerciseEditorProps) {
               value={weightType}
               onValueChange={(value) => setWeightType(value as "barbell" | "dumbbell" | "machine")}
             >
-              <SelectTrigger id="weightType">
+              <SelectTrigger id="weightType" className="bg-zinc-800 border-zinc-700">
                 <SelectValue placeholder="Selecciona el tipo de peso" />
               </SelectTrigger>
-              <SelectContent>
+              <SelectContent className="bg-zinc-800 border-zinc-700">
                 <SelectItem value="barbell">Barra</SelectItem>
                 <SelectItem value="dumbbell">Mancuernas</SelectItem>
                 <SelectItem value="machine">Máquina</SelectItem>

@@ -1,3 +1,5 @@
+"use client"
+
 import { useState, useEffect } from "react"
 import { getWorkoutLogs } from "@/lib/utils"
 import { cn } from "@/lib/utils"
@@ -50,8 +52,8 @@ export function MiniCalendar() {
           key={day}
           className={cn(
             "w-8 h-8 flex items-center justify-center text-xs rounded-full",
-            isWorkoutDay && "bg-primary/20 text-primary font-bold",
-            isToday && "border border-primary",
+            isWorkoutDay && "bg-green-500/20 text-green-500 font-bold",
+            isToday && "border border-green-500",
           )}
         >
           {day}
@@ -86,7 +88,7 @@ export function MiniCalendar() {
       </div>
       <div className="grid grid-cols-7 gap-1 text-center mb-1">
         {dayNames.map((day) => (
-          <div key={day} className="text-xs text-muted-foreground">
+          <div key={day} className="text-xs text-zinc-400">
             {day}
           </div>
         ))}

@@ -47,26 +47,26 @@ export default function Home() {
   }
 
   return (
-    <main className="flex min-h-screen flex-col items-center p-4 bg-background">
+    <main className="flex min-h-screen flex-col items-center p-4 bg-zinc-950">
       <div className="w-full max-w-md">
         {!selectedDay && (
           <header className="mb-6 text-center">
             <h1 className="text-2xl font-bold mb-1">Tracker</h1>
-            <p className="text-muted-foreground text-sm">{formatDate(currentDate)}</p>
+            <p className="text-zinc-400 text-sm">{formatDate(currentDate)}</p>
           </header>
         )}
 
         {isWorkoutComplete ? (
-          <Card className="w-full bg-card/50 border-primary/20">
+          <Card className="w-full bg-zinc-900/50 border-green-500/20">
             <CardHeader className="text-center pb-2">
-              <div className="mx-auto bg-primary/20 w-16 h-16 rounded-full flex items-center justify-center mb-4">
-                <CheckCircle className="h-8 w-8 text-primary" />
+              <div className="mx-auto bg-green-500/20 w-16 h-16 rounded-full flex items-center justify-center mb-4">
+                <CheckCircle className="h-8 w-8 text-green-500" />
               </div>
               <h2 className="text-xl font-bold">¡Entrenamiento Completado!</h2>
-              <p className="text-muted-foreground text-sm">Has completado tu entrenamiento del Día {selectedDay}</p>
+              <p className="text-zinc-400 text-sm">Has completado tu entrenamiento del Día {selectedDay}</p>
             </CardHeader>
             <CardContent className="text-center pb-2">
-              <p className="text-muted-foreground text-sm mb-4">Tus datos han sido guardados correctamente.</p>
+              <p className="text-zinc-400 text-sm mb-4">Tus datos han sido guardados correctamente.</p>
             </CardContent>
             <CardFooter>
               <Button onClick={startNewWorkout} className="w-full">
